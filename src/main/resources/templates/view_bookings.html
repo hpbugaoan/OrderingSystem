@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+    th:href="@{/css/display_form.css}" />
+</head>
+<body>
+    <h2>All Bookings</h2>
+    <table>
+    	<thead>
+    		<tr>
+    			<th>Hotel ID</th>
+    			<th>Hotel Name</th>
+    			<th>Check In Date</th>
+    			<th>Check Out Date</th>
+    			<th>Name</th>
+    			<th>Email</th>
+    			<th>Phone Number</th>
+    			<th># of Guestr</th>
+    			<th>Room Number</th>
+    			<th>Total</th>
+    		</tr>
+    	</thead>
+        <tbody>
+            <tr th:each="booking: ${booking}">
+			    <td th:text="${booking.hotelId}" />
+			    <td th:text="${booking.hotelName}" />
+			    <td th:text="${booking.checkinDate}" />
+			    <td th:text="${booking.checkOutDate}" />
+			    <td th:text="${booking.cusName}" />
+			    <td th:text="${booking.cusEmail}" />
+			    <td th:text="${booking.phoneNum}" />
+			    <td th:text="${booking.roomName}" />
+			    <td th:text="${booking.numGuest}" />
+			    <td th:text="${booking.TotalAmount}" />
+			</tr>
+        </tbody>
+        <tfoot>
+        	<tr>
+        		<td><a th:href="@{/}">Go to Home</a>  </td>
+        		<td><a th:href="@{/registration_form}">Go to Order Form</a></td>
+        	</tr>
+        </tfoot>
+    </table>
+</body>
+</html>

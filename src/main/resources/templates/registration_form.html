@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}"/>
+</head>
+<body>
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h2>Order Creation</h2>
+            <form th:action="@{/save}" th:object="${booking}" method="post">
+                <div class="form-row">
+                
+                    <div class="col-md-6 form-group">
+                        <label>Hotel Name</label>
+                        <input type="text" class="form-control" th:field="*{hotelName}" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Check-in Date</label>
+                        <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="from" th:field="*{checkinDate}" readonly required>
+                    </div>
+                     <div class="col-md-6 form-group">
+                        <label>Check-out Date</label>
+                        <input type="text" class="form-control" placeholder="yyyy-MM-dd" id="to" th:field="*{checkOutDate}" readonly required>
+                    </div>	
+                    
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" th:field="*{cusName}" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Email</label>
+                        <input type="text" class="form-control" th:field="*{cusEmail}" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Phone Number</label>
+                        <input type="number" step="any" class="form-control" th:field="*{phoneNum}" required>
+                    </div>
+                   
+                    <div class="col-md-6 form-group">
+                        <label>Room Name</label>
+                        <input type="text" class="form-control" th:field="*{roomName}" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                        <label>Number of guests</label>
+                        <input type="number" step="any" class="form-control" th:field="*{numGuest}" required>
+                    </div>
+                    
+                    <div class="col-md-6 form-group">
+                    	<label>Total Amount</label>
+                        <input type="number" step="any" class="form-control" th:field="*{TotalAmount}" required>
+                    </div>
+                     
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script>
+ $( function() {
+	   
+			 var dateToday = new Date();
+			 var dates = $("#from, #to").datepicker({
+			     defaultDate: "+1w",
+			     dateFormat: "yy-mm-dd",
+			     changeMonth: true,
+			     numberOfMonths: 1,
+			     minDate: dateToday,
+			     onSelect: function(selectedDate) {
+			         var option = this.id == "from" ? "minDate" : "maxDate",
+			             instance = $(this).data("datepicker"),
+			             date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+			         dates.not(this).datepicker("option", option, date);
+			     }
+			 });
+	  });
+</script>
+</body>
+</html>

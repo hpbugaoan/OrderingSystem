@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Result</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" th:href="@{/css/display_form.css}" />
+</head>
+<body>
+    <h2>Result</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Hotel ID:</strong></td>
+                <td><span th:text="${bookingDetails.hotelId}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Hotel Name:</strong></td>
+                <td><span th:text="${bookingDetails.hotelName}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Check In Date:</strong></td>
+                <td><span th:text="${bookingDetails.checkinDate}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Check Out Date:</strong></td>
+                <td><span th:text="${bookingDetails.checkOutDate}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td><span th:text="${bookingDetails.cusName}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td><span th:text="${bookingDetails.cusEmail}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Phone Number:</strong></td>
+                <td><span th:text="${bookingDetails.phoneNum}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Room Number:</strong></td>
+                <td><span th:text="${bookingDetails.roomName}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Room Number:</strong></td>
+                <td><span th:text="${bookingDetails.numGuest}"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Total:</strong></td>
+                <td><span th:text="${bookingDetails.TotalAmount}"></span></td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;<a th:href="@{registration_form}"
+                    class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Add
+                        new request
+                </a>
+                </td>
+             </tr>
+             <tr>
+                <td colspan="2">&nbsp;<a th:href="@{/}"
+                    class="btn btn-success"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Home
+                </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
